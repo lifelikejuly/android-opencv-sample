@@ -12,13 +12,19 @@ android {
 
         externalNativeBuild {
             cmake {
-                cppFlags "-frtti -fexceptions"
-                arguments '-DANDROID_STL=gnustl_static'
+                cppFlags "-std=c++11","-frtti", "-fexceptions"
+//                cppFlags "-frtti -fexceptions"
+//                arguments '-DANDROID_STL=gnustl_static'
             }
         }
 
         ndk {
             abiFilters 'armeabi-v7a'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
         }
     }
     buildTypes {
@@ -27,23 +33,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-//    sourceSets.main {
-//        jni.srcDirs = ['libs']
-//    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 
     sourceSets {
         main {
-            jni.srcDirs = []
-            jniLibs.srcDirs = ['src/main/libs']
-            assets.srcDirs = ['src/main/assets']
+            jniLibs.srcDirs = ['libs']
         }
     }
 
-    externalNativeBuild {
-        cmake {
-            path "CMakeLists.txt"
-        }
-    }
+//    sourceSets {
+//        main {
+//            jni.srcDirs = []
+//            jniLibs.srcDirs = ['src/main/jniLibs']
+//            assets.srcDirs = ['src/main/assets']
+//        }
+//    }
+
+
 
 }
 

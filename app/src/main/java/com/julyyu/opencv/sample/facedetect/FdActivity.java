@@ -66,7 +66,7 @@ public class FdActivity extends Activity implements CvCameraViewListener2 {
                     Log.i(TAG, "OpenCV loaded successfully");
 
                     // Load native library after(!) OpenCV initialization
-//                    System.loadLibrary("detection_based_tracker");
+                    System.loadLibrary("jupiter_opencv_320");
 
                     try {
                         // load cascade file from application resources
