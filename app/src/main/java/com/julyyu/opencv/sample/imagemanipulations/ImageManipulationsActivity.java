@@ -20,6 +20,7 @@ import org.opencv.imgproc.Imgproc;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +28,7 @@ import android.view.WindowManager;
 
 import com.julyyu.opencv.sample.R;
 
-public class ImageManipulationsActivity extends Activity implements CvCameraViewListener2 {
+public class ImageManipulationsActivity extends AppCompatActivity implements CvCameraViewListener2 {
     private static final String  TAG                 = "OCVSample::Activity";
 
     public static final int      VIEW_MODE_RGBA      = 0;

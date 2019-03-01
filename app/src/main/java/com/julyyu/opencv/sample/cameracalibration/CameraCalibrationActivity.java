@@ -26,6 +26,7 @@ import android.app.ProgressDialog;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -38,7 +39,7 @@ import android.widget.Toast;
 
 import com.julyyu.opencv.sample.R;
 
-public class CameraCalibrationActivity extends Activity implements CvCameraViewListener2, OnTouchListener {
+public class CameraCalibrationActivity extends AppCompatActivity implements CvCameraViewListener2, OnTouchListener {
     private static final String TAG = "OCVSample::Activity";
 
     private CameraBridgeViewBase mOpenCvCameraView;

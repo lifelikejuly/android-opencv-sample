@@ -23,6 +23,7 @@ import org.opencv.imgproc.Imgproc;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,7 +31,7 @@ import android.view.WindowManager;
 
 import com.julyyu.opencv.sample.R;
 
-public class FdActivity extends Activity implements CvCameraViewListener2 {
+public class FdActivity extends AppCompatActivity implements CvCameraViewListener2 {
 
     private static final String    TAG                 = "OCVSample::Activity";
     private static final Scalar    FACE_RECT_COLOR     = new Scalar(0, 255, 0, 255);

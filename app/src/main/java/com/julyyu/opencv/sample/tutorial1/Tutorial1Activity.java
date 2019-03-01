@@ -10,6 +10,7 @@ import org.opencv.android.CameraBridgeViewBase.CvCameraViewListener2;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +20,7 @@ import android.widget.Toast;
 
 import com.julyyu.opencv.sample.R;
 
-public class Tutorial1Activity extends Activity implements CvCameraViewListener2 {
+public class Tutorial1Activity extends AppCompatActivity implements CvCameraViewListener2 {
     private static final String TAG = "OCVSample::Activity";
 
     private CameraBridgeViewBase mOpenCvCameraView;

@@ -96,6 +96,7 @@ add_library( # Sets the name of the library.
         # Associated headers in the same location as their source
         # file are automatically included.
         src/main/cpp/DetectionBasedTracker_jni.cpp
+        src/main/cpp/jni_part.cpp
         src/main/cpp/native-lib.cpp )
 
 find_library( # Sets the name of the path variable.

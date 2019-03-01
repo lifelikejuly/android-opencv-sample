@@ -15,6 +15,8 @@ import com.julyyu.opencv.sample.facedetect.FdActivity;
 import com.julyyu.opencv.sample.imagemanipulations.ImageManipulationsActivity;
 import com.julyyu.opencv.sample.puzzle15.Puzzle15Activity;
 import com.julyyu.opencv.sample.tutorial1.Tutorial1Activity;
+import com.julyyu.opencv.sample.tutorial2.Tutorial2Activity;
+import com.julyyu.opencv.sample.tutorial3.Tutorial3Activity;
 
 /**
  * author : JulyYu
@@ -29,6 +31,8 @@ public class MainAcitivity extends AppCompatActivity implements AdapterView.OnIt
             "facedetect",
             "imagemanipulations",
             "tutorial1",
+            "tutorial2",
+            "tutorial3",
     };
 
     @Override
@@ -63,6 +67,12 @@ public class MainAcitivity extends AppCompatActivity implements AdapterView.OnIt
                 break;
             case 5:
                 startActivity(new Intent(this, Tutorial1Activity.class));
+                break;
+            case 6:
+                startActivity(new Intent(this, Tutorial2Activity.class));
+                break;
+            case 7:
+                startActivity(new Intent(this, Tutorial3Activity.class));
                 break;
 
             default:
