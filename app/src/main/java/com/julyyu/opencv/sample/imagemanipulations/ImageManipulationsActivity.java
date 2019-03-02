@@ -39,6 +39,7 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
     public static final int      VIEW_MODE_ZOOM      = 5;
     public static final int      VIEW_MODE_PIXELIZE  = 6;
     public static final int      VIEW_MODE_POSTERIZE = 7;
+    public static final int      VIEW_MODE_BLUR      = 8;
 
     private MenuItem             mItemPreviewRGBA;
     private MenuItem             mItemPreviewHist;
@@ -48,6 +49,9 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
     private MenuItem             mItemPreviewZoom;
     private MenuItem             mItemPreviewPixelize;
     private MenuItem             mItemPreviewPosterize;
+    private MenuItem             mItemPreviewBlur;
+
+
     private CameraBridgeViewBase mOpenCvCameraView;
 
     private Size                 mSize0;
@@ -141,6 +145,7 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
         mItemPreviewZoom  = menu.add("Zoom");
         mItemPreviewPixelize  = menu.add("Pixelize");
         mItemPreviewPosterize = menu.add("Posterize");
+        mItemPreviewBlur = menu.add("Blur");
         return true;
     }
 
@@ -163,6 +168,9 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
             viewMode = VIEW_MODE_PIXELIZE;
         else if (item == mItemPreviewPosterize)
             viewMode = VIEW_MODE_POSTERIZE;
+        else if (item == mItemPreviewBlur){
+            viewMode = VIEW_MODE_BLUR;
+        }
         return true;
     }
 
@@ -314,6 +322,13 @@ public class ImageManipulationsActivity extends AppCompatActivity implements CvC
             rgbaInnerWindow.setTo(new Scalar(0, 0, 0, 255), mIntermediateMat);
             Core.convertScaleAbs(rgbaInnerWindow, mIntermediateMat, 1./16, 0);
             Core.convertScaleAbs(mIntermediateMat, rgbaInnerWindow, 16, 0);
+            rgbaInnerWindow.release();
+            break;
+
+        case ImageManipulationsActivity.VIEW_MODE_BLUR:
+            rgbaInnerWindow = rgba.submat(top, top + height, left, left + width);
+            Imgproc.blur(rgbaInnerWindow,rgbaInnerWindow,new Size(10,10));
+            Core.convertScaleAbs(rgbaInnerWindow,mIntermediateMat);
             rgbaInnerWindow.release();
             break;
         }

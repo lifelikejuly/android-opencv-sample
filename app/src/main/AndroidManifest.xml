@@ -37,7 +37,11 @@
         <activity android:name=".tutorial3.Tutorial3Activity"/>
         <activity
             android:name=".facedetect.FdActivity"
-
             />
+
+
+        <activity android:name="com.julyyu.opencv.demo.imageblur.ImageBlurActivity"
+
+            ></activity>
     </application>
 </manifest>

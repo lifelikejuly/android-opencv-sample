@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.julyyu.opencv.demo.imageblur.ImageBlurActivity;
 import com.julyyu.opencv.sample.cameracalibration.CameraCalibrationActivity;
 import com.julyyu.opencv.sample.colorblobdetect.ColorBlobDetectionActivity;
 import com.julyyu.opencv.sample.facedetect.FdActivity;
@@ -33,6 +34,7 @@ public class MainAcitivity extends AppCompatActivity implements AdapterView.OnIt
             "tutorial1",
             "tutorial2",
             "tutorial3",
+            "imageblur"
     };
 
     @Override
@@ -74,7 +76,9 @@ public class MainAcitivity extends AppCompatActivity implements AdapterView.OnIt
             case 7:
                 startActivity(new Intent(this, Tutorial3Activity.class));
                 break;
-
+            case 8:
+                startActivity(new Intent(this,ImageBlurActivity.class));
+                break;
             default:
                 break;
         }
