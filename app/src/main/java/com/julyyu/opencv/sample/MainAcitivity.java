@@ -27,6 +27,7 @@ import com.julyyu.opencv.sample.tutorial2.Tutorial2Activity;
 import com.julyyu.opencv.sample.tutorial3.Tutorial3Activity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -117,7 +118,9 @@ public class MainAcitivity extends AppCompatActivity implements AdapterView.OnIt
             }
         }
         if(DeniedPermission.size() > 0){
-            ActivityCompat.requestPermissions(this,(String[])DeniedPermission.toArray(),
+            String[] strings = new String[DeniedPermission.size()];
+            DeniedPermission.toArray(strings);
+            ActivityCompat.requestPermissions(this, strings,
                     requestCode);
             return false;
         }
