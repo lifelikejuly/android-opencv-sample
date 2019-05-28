@@ -39,9 +39,11 @@
             android:name=".facedetect.FdActivity"
             />
 
-
+        <activity android:name="com.julyyu.opencv.demo.imageprocess.ImageProcessActivity"
+            />
         <activity android:name="com.julyyu.opencv.demo.imageblur.ImageBlurActivity"
-
-            ></activity>
+            />
+        <activity android:name="com.julyyu.opencv.demo.binarization.BinarizationActivity"
+            />
     </application>
 </manifest>

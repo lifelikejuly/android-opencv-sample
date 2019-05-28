@@ -16,7 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.julyyu.opencv.demo.binarization.BinarizationActivity;
 import com.julyyu.opencv.demo.imageblur.ImageBlurActivity;
+import com.julyyu.opencv.demo.imageprocess.ImageProcessActivity;
 import com.julyyu.opencv.sample.cameracalibration.CameraCalibrationActivity;
 import com.julyyu.opencv.sample.colorblobdetect.ColorBlobDetectionActivity;
 import com.julyyu.opencv.sample.facedetect.FdActivity;
@@ -45,7 +47,7 @@ public class MainAcitivity extends AppCompatActivity implements AdapterView.OnIt
             "tutorial1",
             "tutorial2",
             "tutorial3",
-            "imageblur"
+            "imageprocess"
     };
 
     private String[] permissions ={
@@ -96,7 +98,7 @@ public class MainAcitivity extends AppCompatActivity implements AdapterView.OnIt
                 startActivity(new Intent(this, Tutorial3Activity.class));
                 break;
             case 8:
-                startActivity(new Intent(this,ImageBlurActivity.class));
+                startActivity(new Intent(this, ImageProcessActivity.class));
                 break;
             default:
                 break;
