@@ -45,5 +45,10 @@
             />
         <activity android:name="com.julyyu.opencv.demo.binarization.BinarizationActivity"
             />
+
+        <activity android:name="com.julyyu.opencv.graphics.RandomImageActivity"
+            />
+        <activity android:name="com.julyyu.opencv.graphics.ColorImageActivity"
+            />
     </application>
 </manifest>
