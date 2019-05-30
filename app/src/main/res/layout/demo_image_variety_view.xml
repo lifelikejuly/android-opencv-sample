@@ -53,6 +53,30 @@
                 android:text="edge"
                 android:onClick="edge"
                 />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="putText"
+                android:onClick="putText"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="scharr"
+                android:onClick="scharr"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="kernel"
+                android:onClick="kernel"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="cvtColor"
+                android:onClick="cvtColor"
+                />
         </LinearLayout>
     </HorizontalScrollView>
 </LinearLayout>

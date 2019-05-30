@@ -19,8 +19,13 @@ import org.opencv.android.Utils;
 import org.opencv.core.Core;
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * author : JulyYu
@@ -88,7 +93,22 @@ public class ImageProcessActivity extends AppCompatActivity {
         imageEdge();
     }
 
+    public void putText(View view){
+        imagePutText();
+    }
 
+    public void scharr(View view){
+        imageScharr();
+    }
+
+    public void kernel(View view){
+        imageKernel();
+    }
+
+
+    public void cvtColor(View view){
+        imageCvtColor();
+    }
 
     private void imageBinarization(){
         mat = new Mat(bitmap.getHeight(),bitmap.getWidth(), CvType.CV_8UC4);
@@ -114,11 +134,12 @@ public class ImageProcessActivity extends AppCompatActivity {
     }
 
     private void imageSharpen(){
-        Mat kenrl = new Mat(5, 5, CvType.CV_16SC1);
+        Mat kenrl = new Mat(3, 3, CvType.CV_16SC1);
         kenrl.put(0, 0,
-                -2, -1, 0,
-                -1,1, 1,
-                0, 1, 2);
+                0, -1,0,
+                -1, 5,-1,
+                0, -1,0
+        );
         mat = new Mat(bitmap.getHeight(),bitmap.getWidth(),CvType.CV_8UC4);
         Utils.bitmapToMat(bitmap,mat);
         Imgproc.filter2D(mat,mat,mat.depth(),kenrl);
@@ -150,6 +171,54 @@ public class ImageProcessActivity extends AppCompatActivity {
         Bitmap afterBitmap = Bitmap.createBitmap(mat.cols(),mat.rows(),
                 Bitmap.Config.ARGB_8888);
         Utils.matToBitmap(Cmat,afterBitmap);
+        ivAfter.setImageBitmap(afterBitmap);
+    }
+
+
+    private void imagePutText(){
+        mat = new Mat(bitmap.getHeight(),bitmap.getWidth(),CvType.CV_8UC4);
+        Utils.bitmapToMat(bitmap,mat);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY:MM:dd");
+        Point point = new Point(bitmap.getHeight() / 2,bitmap.getWidth() / 2);
+        Scalar scalar = new Scalar(250,250,250);
+        Imgproc.putText(mat,simpleDateFormat.format(new Date()),point,5,10,scalar,3);
+        Bitmap afterBitmap = Bitmap.createBitmap(mat.cols(),mat.rows(),
+                Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(mat,afterBitmap);
+        ivAfter.setImageBitmap(afterBitmap);
+    }
+
+    private void imageScharr(){
+        mat = new Mat(bitmap.getHeight(),bitmap.getWidth(),CvType.CV_8UC4);
+        Utils.bitmapToMat(bitmap,mat);
+        Imgproc.Scharr(mat,mat,Imgproc.CV_SCHARR,0,1);
+        Bitmap afterBitmap = Bitmap.createBitmap(mat.cols(),mat.rows(),
+                Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(mat,afterBitmap);
+        ivAfter.setImageBitmap(afterBitmap);
+    }
+
+    private void imageKernel(){
+        mat = new Mat(bitmap.getHeight(),bitmap.getWidth(),CvType.CV_8UC4);
+        Utils.bitmapToMat(bitmap,mat);
+        // Preparing the kernel matrix object
+        Mat kernel = Imgproc.getStructuringElement(Imgproc.MORPH_RECT,
+                new  Size((2*2) + 1, (2*2)+1));
+        // Applying erode on the Image
+        Imgproc.erode(mat, mat, kernel);
+        Bitmap afterBitmap = Bitmap.createBitmap(mat.cols(),mat.rows(),
+                Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(mat,afterBitmap);
+        ivAfter.setImageBitmap(afterBitmap);
+    }
+
+    private void imageCvtColor(){
+        mat = new Mat(bitmap.getHeight(),bitmap.getWidth(),CvType.CV_8UC4);
+        Utils.bitmapToMat(bitmap,mat);
+        Imgproc.cvtColor(mat, mat, Imgproc.COLOR_BGRA2RGBA);
+        Bitmap afterBitmap = Bitmap.createBitmap(mat.cols(),mat.rows(),
+                Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(mat,afterBitmap);
         ivAfter.setImageBitmap(afterBitmap);
     }
 
