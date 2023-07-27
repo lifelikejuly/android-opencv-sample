@@ -34,7 +34,8 @@ public:
     {
         LOGD("CascadeDetectorAdapter::Detect: begin");
         LOGD("CascadeDetectorAdapter::Detect: scaleFactor=%.2f, minNeighbours=%d, minObjSize=(%dx%d), maxObjSize=(%dx%d)", scaleFactor, minNeighbours, minObjSize.width, minObjSize.height, maxObjSize.width, maxObjSize.height);
-        Detector->detectMultiScale(Image, objects, scaleFactor, minNeighbours, 0, minObjSize, maxObjSize);
+        //TODO: detectMultiScale
+        //        Detector->detectMultiScale(Image, objects, scaleFactor, minNeighbours, 0, minObjSize, maxObjSize);
         LOGD("CascadeDetectorAdapter::Detect: end");
     }
 
